@@ -33,12 +33,6 @@ class LiveDataViewModel: ViewModel() {
     val color: LiveData<Int> get() = _color
 
     var _timer: Timer? = null
-    lateinit var _runnable: Runnable
-//    var runState = State.STOP
-//    var max = 100
-//    var speed = 1
-//    var current = 0
-//    var color = R.color.pastel0
 
     fun onClick(state: State){
         when(state){
@@ -51,17 +45,18 @@ class LiveDataViewModel: ViewModel() {
     fun start(){
         Log.d(TAG, "setState is START")
 
-        _max.postValue(Random.nextInt(100, 200))
-        _speed.postValue(Random.nextInt(1, 5))
-        _current.postValue(0)
-        _color.postValue(R.color.pastel1)
+        _max.value = Random.nextInt(100, 200)
+        _speed.value = Random.nextInt(1, 5)
+        _current.value = 0
+        _color.value = R.color.pastel1
 
         run()
     }
 
     fun run(){
         Log.d(TAG, "setState is RUN")
-        _timer = timer(period = 1000){
+        _runState.postValue(State.RUN)
+        _timer = timer(period = 500){
             if (_current.value!!.toInt() >= _max.value!!.toInt()) {
                 stop()
             } else if (_runState.value == State.RUN) {
@@ -71,8 +66,6 @@ class LiveDataViewModel: ViewModel() {
 
             Log.d(TAG, "_current = ${_current.value}, _max = ${_max.value}, color = ${_color.value}")
         }
-
-        _runState.postValue(State.RUN)
     }
 
     fun pause(){
