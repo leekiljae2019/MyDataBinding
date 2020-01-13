@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vmLiveData"
+            type="com.afterwork.mytwowaybinding.ui.liveData.LiveDataViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Binding Type: LiveData"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@{vmLiveData.runStateToString(vmLiveData.runState)}"
+            android:onClick="@{() -> vmLiveData.onClick(vmLiveData.runState)}"/>
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="100dp"
+            android:gravity="right"
+            android:text="MAX: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="left"
+            intToText="@{vmLiveData.max}"/>
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="140dp"
+            android:gravity="right"
+            android:text="SPEED: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="left"
+            intToText="@{vmLiveData.speed}"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="180dp"
+            android:max="@{vmLiveData.max}"
+            android:progress="@{vmLiveData.current}"
+            visibility="@{vmLiveData.runState}"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="220dp"/>
+<!--            background="@{vmLiveData.color}"/>-->
+<!--            android:background="@{vmLiveData.color}"/>-->
+    </RelativeLayout>
+</layout>
