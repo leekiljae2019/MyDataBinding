@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.BindingConversion
 import com.afterwork.mytwowaybinding.R
@@ -25,7 +26,7 @@ fun visibility(view: View, state: State){
 
 @BindingAdapter("background")
 fun background(view: ImageView, color: Int){
-    view.setBackgroundColor(color)
+    view.setBackgroundColor(ContextCompat.getColor(view.context, color))
 }
 
 @BindingAdapter("intToText")

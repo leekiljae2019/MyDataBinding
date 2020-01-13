@@ -48,7 +48,7 @@
             android:layout_height="30dp"
             android:textSize="16dp"
             android:layout_marginTop="140dp"
-            android:gravity="right"
+            android:gravity="left"
             android:text="SPEED: "/>
         <TextView
             android:layout_width="match_parent"
@@ -69,8 +69,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="220dp"/>
-<!--            background="@{vmLiveData.color}"/>-->
-<!--            android:background="@{vmLiveData.color}"/>-->
+            android:layout_marginTop="220dp"
+            background="@{vmLiveData.color}"/>
     </RelativeLayout>
 </layout>
