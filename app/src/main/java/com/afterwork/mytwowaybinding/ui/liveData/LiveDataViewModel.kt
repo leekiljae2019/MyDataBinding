@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.afterwork.mytwowaybinding.R
 import com.afterwork.mytwowaybinding.State
 import java.util.*
-import java.util.logging.Handler
 import kotlin.concurrent.timer
 import kotlin.random.Random
 
@@ -49,23 +48,22 @@ class LiveDataViewModel: ViewModel() {
         _speed.value = Random.nextInt(1, 5)
         _current.value = 0
         _color.value = R.color.pastel1
-
         run()
     }
 
     fun run(){
         Log.d(TAG, "setState is RUN")
-        _runState.postValue(State.RUN)
         _timer = timer(period = 500){
             if (_current.value!!.toInt() >= _max.value!!.toInt()) {
                 stop()
             } else if (_runState.value == State.RUN) {
                 _current.postValue(_current.value!! + _speed.value!!)
                 _color.postValue(randColor())
+                Log.d(TAG, "_current = ${_current.value}, _max = ${_max.value}, color = ${_color.value}")
             }
-
-            Log.d(TAG, "_current = ${_current.value}, _max = ${_max.value}, color = ${_color.value}")
         }
+
+        _runState.value = State.RUN
     }
 
     fun pause(){
@@ -90,14 +88,6 @@ class LiveDataViewModel: ViewModel() {
             7 -> return R.color.pastel7
             8 -> return R.color.pastel8
             else -> return R.color.pastel9
-        }
-    }
-
-    fun runStateToString(state: State): String{
-        when(state){
-            State.RUN -> return "RUN"
-            State.PAUSE -> return "PAUSE"
-            else -> return "STOP"
         }
     }
 }

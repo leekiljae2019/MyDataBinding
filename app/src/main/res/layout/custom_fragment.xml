@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="vmObservable"
-            type="com.afterwork.mytwowaybinding.ui.observable.ObservableViewModel" />
+            name="vmCustom"
+            type="com.afterwork.mytwowaybinding.ui.custom.CustomViewModel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,8 +25,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="40dp"
             android:gravity="center"
-            runStateText="@{vmObservable.runState}"
-            android:onClick="@{() -> vmObservable.onClick(vmObservable.runState)}"/>
+            runStateText="@{vmCustom.data.runState}"
+            android:onClick="@{() -> vmCustom.onClick(vmCustom.data.runState)}"/>
         <TextView
             android:layout_width="90dp"
             android:layout_height="30dp"
@@ -37,7 +41,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginLeft="100dp"
             android:gravity="left"
-            intToText="@{vmObservable.max}"/>
+            intToText="@{vmCustom.data.max}"/>
         <TextView
             android:layout_width="90dp"
             android:layout_height="30dp"
@@ -52,7 +56,7 @@
             android:layout_marginTop="130dp"
             android:layout_marginLeft="100dp"
             android:gravity="left"
-            intToText="@{vmObservable.speed}"/>
+            intToText="@{vmCustom.data.speed}"/>
         <TextView
             android:layout_width="90dp"
             android:layout_height="30dp"
@@ -67,19 +71,19 @@
             android:layout_marginTop="160dp"
             android:layout_marginLeft="100dp"
             android:gravity="left"
-            intToText="@{vmObservable.current}"/>
+            intToText="@{vmCustom.data.current}"/>
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginTop="190dp"
-            android:max="@{vmObservable.max}"
-            android:progress="@{vmObservable.current}"
-            visibility="@{vmObservable.runState}"/>
+            android:max="@{vmCustom.data.max}"
+            android:progress="@{vmCustom.data.current}"
+            visibility="@{vmCustom.data.runState}"/>
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="220dp"
-            background="@{vmObservable.color}"/>
+            background="@{vmCustom.data.color}"/>
     </RelativeLayout>
 </layout>
