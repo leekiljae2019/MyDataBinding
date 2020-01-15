@@ -20,6 +20,5 @@ class CustomFragment: BaseFragment<CustomFragmentBinding>(){
         super.onActivityCreated(savedInstanceState)
         binding.vmCustom = ViewModelProviders.of(this).get(CustomViewModel::class.java)
         // TODO: Use the ViewModel
-        binding.lifecycleOwner = this
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vmMulti2"
+            type="com.afterwork.mytwowaybinding.ui.multidisplay2.Multidisplay2ViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/whitegray">
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:text="MAX: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="left"
+            intToText="@{vmMulti2.data.max}"/>
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="40dp"
+            android:gravity="right"
+            android:text="SPEED: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="left"
+            intToText="@{vmMulti2.data.speed}"/>
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="70dp"
+            android:gravity="right"
+            android:text="CURRENT: "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textSize="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="left"
+            intToText="@{vmMulti2.data.current}"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="110dp"
+            android:max="@{vmMulti2.data.max}"
+            android:progress="@{vmMulti2.data.current}"
+            visibility="@{vmMulti2.data.runState}"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
+            android:padding="20dp"
+            background="@{vmMulti2.data.color}"/>
+    </RelativeLayout>
+</layout>

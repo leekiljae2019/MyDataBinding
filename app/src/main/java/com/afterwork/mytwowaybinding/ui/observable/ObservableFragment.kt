@@ -20,6 +20,5 @@ class ObservableFragment: BaseFragment<ObservableFragmentBinding>() {
         super.onActivityCreated(savedInstanceState)
         binding.vmObservable = ViewModelProviders.of(this).get(ObservableViewModel::class.java)
         // TODO: Use the ViewModel
-        binding.lifecycleOwner = this
     }
 }

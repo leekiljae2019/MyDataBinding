@@ -21,6 +21,5 @@ class MultidisplayFragment: BaseFragment<MultidisplayFragmentBinding>(){
         super.onActivityCreated(savedInstanceState)
         binding.vmMulti = ViewModelProviders.of(requireActivity()).get(MultidisplayViewModel::class.java)
         // TODO: Use the ViewModel
-        binding.lifecycleOwner = this
     }
 }

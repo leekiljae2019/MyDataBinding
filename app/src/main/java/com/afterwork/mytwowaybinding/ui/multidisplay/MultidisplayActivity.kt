@@ -26,7 +26,5 @@ class MultidisplayActivity: BaseActivity<MultidisplayActivityBinding>() {
         }
 
         binding.vmMulti = ViewModelProviders.of(this).get(MultidisplayViewModel::class.java)
-
-        binding.lifecycleOwner = this
     }
 }

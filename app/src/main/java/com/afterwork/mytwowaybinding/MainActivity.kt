@@ -8,6 +8,7 @@ import com.afterwork.mytwowaybinding.ui.custom.CustomFragment
 import com.afterwork.mytwowaybinding.ui.liveData.LiveDataFragment
 import com.afterwork.mytwowaybinding.ui.main.MainFragment
 import com.afterwork.mytwowaybinding.ui.multidisplay.MultidisplayActivity
+import com.afterwork.mytwowaybinding.ui.multidisplay2.Multidisplay2Activity
 import com.afterwork.mytwowaybinding.ui.observable.ObservableFragment
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.container, CustomFragment.newInstance())
                         .commitNow()
                     BindingType.MULTI -> startActivity(Intent(this@MainActivity, MultidisplayActivity::class.java))
+                    BindingType.MULTI2 -> startActivity(Intent(this@MainActivity, Multidisplay2Activity::class.java))
                 }
             }
         }
