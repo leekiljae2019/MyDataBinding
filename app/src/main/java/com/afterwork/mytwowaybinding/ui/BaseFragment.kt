@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.afterwork.mytwowaybinding.R
-import com.afterwork.mytwowaybinding.databinding.MainFragmentBinding
 
 abstract class BaseFragment<T : ViewDataBinding>: Fragment(){
 

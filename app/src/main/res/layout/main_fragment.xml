@@ -35,6 +35,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:onClick="@{() -> vmMain.onClick(BT.CUSTOM)}"/>
+
+        <Button
+            android:text="Mutidisplay Binding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="@{() -> vmMain.onClick(BT.MULTI)}"/>
     </LinearLayout>
 
 </layout>

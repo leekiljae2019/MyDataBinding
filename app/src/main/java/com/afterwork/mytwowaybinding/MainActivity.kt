@@ -1,11 +1,13 @@
 package com.afterwork.mytwowaybinding
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.afterwork.mytwowaybinding.ui.custom.CustomFragment
 import com.afterwork.mytwowaybinding.ui.liveData.LiveDataFragment
 import com.afterwork.mytwowaybinding.ui.main.MainFragment
+import com.afterwork.mytwowaybinding.ui.multidisplay.MultidisplayActivity
 import com.afterwork.mytwowaybinding.ui.observable.ObservableFragment
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     BindingType.CUSTOM -> supportFragmentManager.beginTransaction()
                         .replace(R.id.container, CustomFragment.newInstance())
                         .commitNow()
-
+                    BindingType.MULTI -> startActivity(Intent(this@MainActivity, MultidisplayActivity::class.java))
                 }
             }
         }

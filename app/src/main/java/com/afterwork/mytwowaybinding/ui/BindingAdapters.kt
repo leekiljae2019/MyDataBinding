@@ -36,3 +36,8 @@ fun runStateText(button: Button, state: State){
         else -> button.setText("STOP")
     }
 }
+
+@BindingAdapter(value = ["maxText","speedText", "currentText"], requireAll = true)
+fun mergeText(view: TextView, max: Int, speed: Int, current: Int){
+    view.setText("Values: ${max}, ${speed}, ${current}")
+}
